@@ -1,0 +1,25 @@
+defaults:
+  - _self_
+  - model: resnet18
+  - al_strategy: random
+
+n_opt_samples: 100
+cpus_per_trial: 4
+gpus_per_trial: 1
+
+budget: 2000
+
+dataset: CIFAR10
+dataset_path: ./data/
+random_seed: 1
+fast_dev_run: False
+
+output_dir: ./output/
+hydra:
+  run:
+    dir: ${output_dir}
+  job_logging:
+    handlers:
+      file:
+        mode: w
+
